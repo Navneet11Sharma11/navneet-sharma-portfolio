@@ -109,6 +109,8 @@ Professional journey across:
 
 ## Getting Started
 
+Use Node.js 20.19.0 or newer.
+
 Install dependencies:
 
 ```bash
@@ -137,6 +139,54 @@ Start production server:
 
 ```bash
 npm start
+```
+
+## Tests
+
+### Unit Tests
+
+Run the unit tests once:
+
+```bash
+npm run test:unit
+```
+
+Run one unit-test file:
+
+```bash
+npm run test:unit -- unit-tests/Footer.test.tsx
+```
+
+Run unit tests in watch mode while developing:
+
+```bash
+npm run test:unit:watch
+```
+
+### End-to-End Tests
+
+Install the Playwright Chromium browser once:
+
+```bash
+npx playwright install chromium
+```
+
+Run the end-to-end test suite (Playwright starts the development server automatically):
+
+```bash
+npm run test:e2e
+```
+
+Run a single test by its title:
+
+```bash
+npm run test:e2e -- --grep "desktop navigation follows section links"
+```
+
+Run tests with a visible browser:
+
+```bash
+npm run test:e2e -- --headed
 ```
 
 ## Deployment

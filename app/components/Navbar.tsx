@@ -117,6 +117,7 @@ export default function Navbar() {
 
             {/* Mobile Menu Button */}
             <IconButton
+              aria-label="Open navigation menu"
               sx={{
                 display: { xs: 'flex', md: 'none' },
                 color: '#fff',
