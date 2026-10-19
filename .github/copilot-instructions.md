@@ -4,6 +4,7 @@
 
 - Install dependencies with `npm install`.
 - Run the development server with `npm run dev`; build with `npm run build`; serve a production build with `npm start`.
+- Build and run the container stack with `docker compose up --build`; Docker enables standalone output via `DOCKER_BUILD=1`, while local builds retain the regular Next.js output.
 - Run ESLint across the project with `npm run lint`, or on one file with `npm run lint -- app/components/Navbar.tsx`.
 - Run unit tests with `npm run test:unit`; run one file with `npm run test:unit -- unit-tests/Footer.test.tsx`; use `npm run test:unit:watch` while developing.
 - Run the Playwright end-to-end suite with `npm run test:e2e`; run one spec with `npm run test:e2e -- tests/homepage.spec.ts`, or one test by title with `npm run test:e2e -- --grep "renders the portfolio sections"`.

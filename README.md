@@ -149,6 +149,24 @@ To export traces, copy `.env.example` to `.env.local` and set `OTEL_EXPORTER_OTL
 
 For a hosted collector, configure its endpoint and any required `OTEL_EXPORTER_OTLP_HEADERS` in your deployment environment or ignored `.env.local` file. Do not commit collector credentials. Without a configured exporter or hosting-platform tracing integration, the app does not send traces to an external backend.
 
+## Docker
+
+Build and start the production app and local Jaeger collector:
+
+```bash
+docker compose up --build
+```
+
+Open the app at `http://localhost:3000` and Jaeger at `http://localhost:16686`. The Compose app sends OTLP/HTTP traces to Jaeger automatically. Jaeger uses in-memory storage in this setup, so traces are lost when its container is removed.
+
+Stop the services with:
+
+```bash
+docker compose down
+```
+
+The app image uses Next.js standalone output and runs as a non-root user. Standalone output is enabled only during the Docker build, so the regular `npm run build` and `npm start` workflow remains unchanged. For other environments, set `OTEL_SERVICE_NAME`, `OTEL_EXPORTER_OTLP_ENDPOINT`, and any required `OTEL_EXPORTER_OTLP_HEADERS` in the deployment environment rather than baking credentials into the image.
+
 ## Tests
 
 ### Unit Tests
