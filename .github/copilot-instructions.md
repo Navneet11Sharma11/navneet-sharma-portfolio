@@ -12,6 +12,7 @@
 ## Architecture
 
 - This is a Next.js 16 App Router application. `app/page.tsx` composes the portfolio sections into one page; `app/layout.tsx` owns document metadata, global CSS loading, and the MUI App Router cache provider.
+- Root `instrumentation.ts` registers OpenTelemetry for Next.js server tracing; configure OTLP export through environment variables, never committed secrets.
 - The page is divided into focused components in `app/components/`. Section content is currently defined in component-local arrays and rendered as a single, static portfolio rather than loaded from a service.
 - `app/components/Navbar.tsx` is interactive (scroll state and mobile drawer); most MUI section components currently declare `'use client'`. Keep browser-dependent interaction in client components and avoid broadening client boundaries unnecessarily.
 

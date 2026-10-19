@@ -141,6 +141,14 @@ Start production server:
 npm start
 ```
 
+## OpenTelemetry
+
+The root `instrumentation.ts` registers OpenTelemetry with Next.js. Next.js creates server-side spans for requests; the service name defaults to `navneet-sharma-portfolio` and can be overridden with `OTEL_SERVICE_NAME`.
+
+To export traces, copy `.env.example` to `.env.local` and set `OTEL_EXPORTER_OTLP_ENDPOINT` to the **base URL** of an OTLP/HTTP-compatible collector (for example, `http://localhost:4318`). The exporter sends traces to the standard `/v1/traces` path. Restart the server after changing environment variables.
+
+For a hosted collector, configure its endpoint and any required `OTEL_EXPORTER_OTLP_HEADERS` in your deployment environment or ignored `.env.local` file. Do not commit collector credentials. Without a configured exporter or hosting-platform tracing integration, the app does not send traces to an external backend.
+
 ## Tests
 
 ### Unit Tests
